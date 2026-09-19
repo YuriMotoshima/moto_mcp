@@ -14,6 +14,20 @@
       "enabled": false
     }
   },
+  "agents": {
+    "mike_local": {
+      "description": "Mike com acesso externo mediante aprovação.",
+      "mode": "primary",
+      "permission": {
+        "*": "deny",
+        "read": "allow",
+        "glob": "allow",
+        "edit": "ask",
+        "external_directory": "ask",
+        "motomcp_*": "allow"
+      }
+    }
+  },
   "provider": {
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
