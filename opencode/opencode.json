@@ -13,16 +13,21 @@
     "moto-mcp": {
       "enabled": false
     }
-  },        "agents": {
-         "custom_mike_local": {
-           "description": "Agente baseado no perfil de Mike, com acesso a ferramentas de leitura e navegação local (read, glob).",
-           "tools": {
-             "allowed": ["read", "glob"],
-             "workdir": "." 
-           },
-           "base_agent": "mike"
-         }
-       },
+  },
+  "agents": {
+    "mike_local": {
+      "description": "Mike com acesso externo mediante aprovação.",
+      "mode": "primary",
+      "permission": {
+        "*": "deny",
+        "read": "allow",
+        "glob": "allow",
+        "edit": "ask",
+        "external_directory": "ask",
+        "motomcp_*": "allow"
+      }
+    }
+  },
   "provider": {
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
